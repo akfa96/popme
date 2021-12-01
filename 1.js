@@ -1,53 +1,28 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vyantagc/vyantagc/popme-style.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+$(document).ready(function()
+{
+    console.log('jquery ready!');
 
-<script type="text/javascript">
-    var go_current     	= window.location.href;
-    var reff     	= document.referrer;
-    
+	var popbox = `<div class="popbox hide" id="popbox"><div aria-label='Close' class="pop-overlay" role="button" tabindex="0"/><div class="pop-content"><div class="popcontent" align="center"> <img src="https://1.bp.blogspot.com/-y8AsxfEerDc/YFSyMPZF14I/AAAAAAAAAAM/JUegMgSE-3o5A_06mx0Fir2-dkB6fAGvACLcBGAsYHQ/s640/re.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="640" height="320" alt="" /> <button class='g_url btn btn-success btn-dwn m-2'>Confirm</button> <br/></div> <button class='g_url popbox-close-button'>&times;</button></div></div>`;
 
-    function rChoice(arr) {
-	    return arr[Math.floor(arr.length * Math.random())];
-	}
+	$(document.body).append(popbox);
 
-    var direct_link_ads = rChoice([
-                            "https://queersodadults.com/zbzz4wstn?key=7583ecc167b6a5d945fda3c23f39022e",
-                            "https://queersodadults.com/vuhfrxi7fg?key=a31f9b7f5fd91ec06ebee6569b1c8f58",
-                        ]);
-
-    var ars             = rChoice([
-                            "https://garden.designonvine.com",
-                            "https://bedroom.designonvine.com",
-			                      "https://kitchen.designonvine.com",
-			                      "https://livingroom.designonvine.com",
-                        ]);
-
-
-    var dir_type        = "arsae"; //refresh, domain, path, arsae
-
-
-    if(dir_type == 'refresh')
+    if(['.google.', 'bing.', 'yandex.', 'facebook.', 'pinterest.'].some(s => document.referrer.toLowerCase().includes(s)) || ['fb', 'facebook', 'pinterest', 'twitter'].some(s => navigator.userAgent.toLowerCase().includes(s)))
     {
-        //REFRESH
-        console.log('refresh..');
-    }
-    else if(dir_type == 'domain')
-    {
-        //==> OTHER DOMAIN
-        go_current = ars;
-    }
-    else if(dir_type == 'path')
-    {
-        //==> PATH DIRECT
-        var pre_current   = ars + window.location.pathname;
-        go_current        = pre_current.includes("?")?pre_current+"&c=1":pre_current+"?c=1";
-    }
-    else if(dir_type == 'arsae')
-    {
-        //==> ARSAE DIRECT
-        go_current            = ars + '/?arsae='+ encodeURIComponent(go_current) + '&arsae_ref='+ encodeURIComponent(reff);
+		$(window).scroll(function (event) {
+		    var scroll = $(window).scrollTop();
+		    if (scroll >= 200) {
+		        $('#popbox').removeClass('hide');
+		    }
+		    console.log('scroll..');                    
+		});
     }
 
-</script>
+    $(document).on('click','.g_url',function(e)
+    {
+        e.preventDefault();            
 
-<script  src="https://cdn.jsdelivr.net/gh/vyantagc/vyantagc/popme-double-ads4.js" ></script>
+        window.open(https://queersodadults.com/zbzz4wstn?key=7583ecc167b6a5d945fda3c23f39022e,"_blank");
+        window.location.href = go_current;
+    });
+
+});
